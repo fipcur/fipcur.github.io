@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="icon-web-catone.png" type="image/png" />
+  <title> A B O U E T </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<style>
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw; 
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    /* วิดีโอ */
+    #bgVideo {
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;
+    }
+
+    /* เงาซ้อนทับบนวิดีโอ */
+    .video-background::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* มืดลง 50% */
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* ปุ่มเปิด/ปิดเสียง */
+    .mute-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .nav-links a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 5px;
+    }
+
+    .nav-links a.active {
+        border: 2px solid white;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+      <div class="video-background">
+        <video autoplay muted loop playsinline id="bgVideo">
+          <source src="Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri!「AMV」- Big Swing.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <span class="icon-label" style="font-family: Josefin Sans, sans-serif;">MY PORTFOLIO</span>
+      </div>
+
+      <div class="nav-links" style=" font-family: Josefin Sans, sans-serif; ">
+        <a href="index1.html">About ME</a>
+        <a href="index.html">Home</a>
+        <a href="" class="active">Portfolio</a>
+      </div>
+    </nav>
+
+    <div class="aboet-name">
+      <p style="text-align: center; border-bottom: 2px #fff; padding: 15.5%; color: #fff; font-family: Josefin Sans, sans-serif; font-size: 24px;" >welcome to web me ( :> )</p>
+    </div>
+
+  <button class="mute-toggle" onclick="toggleMute()">🔇 ปิดเสียง</button>
+
+  <script>
+    const video = document.getElementById('bgVideo');
+    const button = document.querySelector('.mute-toggle');
+
+    function toggleMute() {
+      video.muted = !video.muted;
+      button.textContent = video.muted ? "🔇 ปิดเสียง" : "🔊 เปิดเสียง";
+    }
+  </script>
+
+</body>
+</html>
